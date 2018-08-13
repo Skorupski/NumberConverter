@@ -1,0 +1,34 @@
+apply plugin: 'java'
+apply plugin: 'application'
+apply plugin: 'war'
+
+mainClassName = 'eu.scattering.client.GUI'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+jar {
+	baseName = 'NumberConverter'
+	version =  '1.0'
+	manifest {
+		attributes(
+			'Main-Class': 'eu.scattering.client.GUI'
+		)
+	}
+}
+
+war {
+	baseName = 'NumberConverter'
+    version =  '1.0'
+}
+
+dependencies {
+	providedCompile 'javax.servlet:javax.servlet-api:3.1.0'
+    providedCompile 'javax.ws.rs:javax.ws.rs-api:2.1'
+    
+    testCompile 'junit:junit:4.11'
+}
